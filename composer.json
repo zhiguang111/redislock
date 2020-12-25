@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lock\\RedisLock\\": "src/lock/RedisLock"
+            "RedisLock\\": "src/"
         }
     }
 }
