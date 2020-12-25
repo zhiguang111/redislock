@@ -2,19 +2,36 @@
 
 namespace lock\RedisLock;
 
+use lock\Instance\Instance;
+
 class RedisLock
 {
     public $redis;
 
-    public function __construct()
+    public function __construct($host, $port, $password)
     {
-        $self = Instance::getInstance(self::class);
-        $self->redis = new Redis();
-        $self->redis = $self->redis->connect('127.0.0.1',6379,30);
+        $redis = new \Redis();
+        $redis->connect($host,$port);
+        $redis->auth($password);
+        $this->redis = $redis;
+        return Instance::getInstance(self::class);
+
     }
 
-    public function setLock()
+    public function setLock($key, $data)
     {
-        $res = $this->redis->setNx('aaa','bbb');
+       return $this->redis->setNx('aaa','bbb');
+    }
+
+    public function doEventRetry($key,callable $callable)
+    {
+        while (true) {
+            if ($value = $this->redis->rPop($key)) {
+                if (empty($value)) {
+                    break;
+                }
+            }
+            $callable();
+        }
     }
 }

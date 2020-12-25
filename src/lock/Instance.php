@@ -1,7 +1,7 @@
 <?php
 namespace lock\Instance;
 
-class Instance6a
+class Instance
 {
     private static $getInstance;
 
@@ -20,5 +20,6 @@ class Instance6a
 
         return self::$getInstance;
     }
+
 
 }
