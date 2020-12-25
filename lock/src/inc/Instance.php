@@ -1,5 +1,6 @@
 <?php
-namespace lock\Instance;
+namespace lock\src\inc;
+
 
 class Instance
 {

@@ -1,7 +1,7 @@
 {
     "name": "zhiguang/redislock",
     "description": "redis分布分布式锁",
-    "type": "project",
+    "type": "library",
     "license": "no",
     "authors": [
         {
@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "RedisLock\\": "src/"
+            "lock\\src\\inc\\": "lock/src/inc"
         }
     }
 }

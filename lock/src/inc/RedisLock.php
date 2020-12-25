@@ -1,8 +1,7 @@
 <?php
 
-namespace lock\RedisLock;
+namespace lock\src\inc;
 
-use lock\Instance\Instance;
 
 class RedisLock
 {
