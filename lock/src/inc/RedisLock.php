@@ -13,7 +13,6 @@ class RedisLock
         $redis->connect($host,$port);
         $redis->auth($password);
         $this->redis = $redis;
-        return Instance::getInstance(self::class);
 
     }
 
